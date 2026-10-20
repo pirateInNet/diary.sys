@@ -1,0 +1,20 @@
+[package]
+name = "diary-tui"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "diary"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.26"
+crossterm = "0.27"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true
